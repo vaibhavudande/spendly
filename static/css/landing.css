@@ -1,0 +1,48 @@
+/* ------------------------------------------------------------------ */
+/* Landing page — hero                                                 */
+/* Loaded after style.css, so these rules override the base hero.      */
+/* ------------------------------------------------------------------ */
+
+.hero {
+    grid-template-columns: 1fr 1.25fr;
+    gap: 2rem;
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-illustration {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    /* The illustration has a near-white background; multiply blends it
+       into the page's warm paper colour, and the edge mask fades out the
+       image border so no box outline shows. The artwork itself sits well
+       inside the faded margins. */
+    mix-blend-mode: multiply;
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 14%, #000 88%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 14%, #000 88%, transparent 100%);
+    mask-composite: intersect;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* style.css hides the hero visual on small screens; show the
+       illustration below the text instead. */
+    .hero-visual { display: flex; }
+
+    .hero-illustration { max-width: 560px; }
+}
