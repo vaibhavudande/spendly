@@ -23,6 +23,11 @@
         <div class="hero-actions">
             <a href="{{ url_for('register') }}" class="btn-primary">Start tracking free</a>
             <a href="{{ url_for('login') }}" class="btn-ghost">Sign in</a>
+            <button type="button" class="btn-ghost btn-how" id="how-it-works-btn"
+                    aria-haspopup="dialog" aria-controls="video-modal">
+                <span class="btn-how-icon" aria-hidden="true">▶</span>
+                See how it works
+            </button>
         </div>
     </div>
     <div class="hero-visual">
@@ -61,4 +66,28 @@
     </div>
 </section>
 
+{# "See how it works" video modal.
+   Replace data-video-src with your own YouTube embed URL. #}
+<div class="video-modal" id="video-modal" role="dialog" aria-modal="true"
+     aria-labelledby="video-modal-title" hidden>
+    <div class="video-modal-dialog">
+        <div class="video-modal-header">
+            <h2 class="video-modal-title" id="video-modal-title">See how Spendly works</h2>
+            <button type="button" class="video-modal-close" id="video-modal-close"
+                    aria-label="Close video">&times;</button>
+        </div>
+        <div class="video-modal-frame">
+            <iframe id="video-modal-iframe"
+                    data-video-src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE"
+                    title="How Spendly works"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
 {% endblock %}

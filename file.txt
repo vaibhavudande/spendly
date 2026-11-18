@@ -41,7 +41,7 @@ Modify only the hero section in @templates/landing.html and
 to match this image exactly. Do not touch any other part of the
 page. 
 
-Add a modal to templates/landing.html that opens when the user
+Add a modal to @templates/landing.html that opens when the user
 clicks
 "See how it works".
 
@@ -57,3 +57,6 @@ for now, I will replace it later)
 continue in background)
 - No page libraries or dependencies - vanilla JS only, since we
 are not
+using any JS framework in this project
+
+Do not modify any other part of the page. 

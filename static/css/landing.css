@@ -46,3 +46,109 @@
 
     .hero-illustration { max-width: 560px; }
 }
+
+/* ------------------------------------------------------------------ */
+/* "See how it works" button                                           */
+/* ------------------------------------------------------------------ */
+
+.hero-actions { flex-wrap: wrap; }
+
+.btn-how {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+}
+
+.btn-how-icon {
+    font-size: 0.65rem;
+    color: var(--accent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Video modal                                                         */
+/* ------------------------------------------------------------------ */
+
+.video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(15, 15, 15, 0.72);
+    animation: modal-fade 0.2s ease;
+}
+
+.video-modal[hidden] { display: none; }
+
+.video-modal-dialog {
+    width: 100%;
+    max-width: 880px;
+    background: var(--paper-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+}
+
+.video-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.video-modal-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--ink);
+}
+
+.video-modal-close {
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink-soft);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.video-modal-close:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+}
+
+.video-modal-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--ink);
+}
+
+.video-modal-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Stop the page scrolling behind the open modal */
+body.modal-open { overflow: hidden; }
+
+@keyframes modal-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .video-modal { padding: 1rem; }
+    .video-modal-title { font-size: 1.05rem; }
+}
